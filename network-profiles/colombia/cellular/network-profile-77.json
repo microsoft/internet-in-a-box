@@ -1,0 +1,24 @@
+{
+    "measurement_node": "colombia",
+    "peer_cloud_server": "aws brazil",
+    "data_flow_direction": "upload",
+    "link_type": "cellular",
+    "data_source_url": "https://pantheon.stanford.edu/result/1897/",
+    "config": {
+        "uplink": {
+            "bottleneck_bandwidth": 672,
+            "buffer_size_bytes": 629948,
+            "buffer_size_packets": 419,
+            "propagation_delay": 379,
+            "cross_traffic_pattern": [0, 0, 0, 0, 62, 96, 108, 111, 111, 112, 110, 101, 97, 97, 102, 110, 112, 112, 109, 108, 106, 105, 106, 105, 105, 104, 103, 104, 105, 106]
+        },
+        "downlink": {
+            "bottleneck_bandwidth": 10000,
+            "buffer_size_bytes": 15000000,
+            "buffer_size_packets": 10000,
+            "propagation_delay": 0,
+            "cross_traffic_pattern": []
+        },
+        "__comment": "bottleneck_bandwidth is in kbps, buffer_size_packets is in number of MTU sized packets, propagation_delay is in ms, and the cross_traffic_pattern is a 30s long timeseries with each entry in kbps"
+    }
+}
