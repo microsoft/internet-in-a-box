@@ -13,7 +13,7 @@
             "cross_traffic_pattern": [0, 0, 0, 189, 220, 34, 23, 33, 56, 102, 137, 102, 93, 71, 34, 65, 54, 56, 68, 122, 117, 51, 80, 131, 93, 102, 84, 50, 44, 66]
         },
         "downlink": {
-            "bottleneck_bandwidth": 10000,
+            "bottleneck_bandwidth": 100000,
             "buffer_size_bytes": 15000000,
             "buffer_size_packets": 10000,
             "propagation_delay": 0,
