@@ -1,18 +1,18 @@
-# package require json
+package require json
 
 # Create a simulator object
 set ns [new Simulator]
 
 # Define a 'finish' procedure
 proc finish {} {
-    global ns tf
-    $ns flush-trace
-    # Close the packet trace file
-    close $tf
-    exit 0
+	global ns tf
+	$ns flush-trace
+	# Close the packet trace file
+	close $tf
+	exit 0
 }
 
-# Load the JSON profile as a dict in tcl
+# Load the JSON profile as a dict in tcl 
 set networkProfilePath [lindex $argv 0]
 set loadedFile [open $networkProfilePath r]
 set profileString [read $loadedFile]
@@ -26,11 +26,13 @@ set uplinkParams [dict get $params uplink]
 set bottleneckBandwidthUplink [dict get $uplinkParams bottleneck_bandwidth]kb
 set bufferSizeInPacketsUplink [dict get $uplinkParams buffer_size_packets]
 set propagationDelayUplink [dict get $uplinkParams propagation_delay]ms
+set crossTrafficPatternUplink [dict get $uplinkParams cross_traffic_pattern]
 
 set downlinkParams [dict get $params downlink]
 set bottleneckBandwidthDownlink [dict get $downlinkParams bottleneck_bandwidth]kb
 set bufferSizeInPacketsDownlink [dict get $downlinkParams buffer_size_packets]
 set propagationDelayDownlink [dict get $downlinkParams propagation_delay]ms
+set crossTrafficPatternDownlink [dict get $downlinkParams cross_traffic_pattern]
 
 # Create sender and receiver nodes
 set n0 [$ns node]
@@ -73,6 +75,31 @@ $ftp1 set type_ FTP
 # Tcp1 start stop
 $ns at 00.0 "$ftp1 start"
 $ns at 30.0 "$ftp1 stop"
+
+# Setup a UDP connection for establishing cross traffic
+set udp1 [new Agent/UDP]
+$ns attach-agent $n0 $udp1
+set null [new Agent/Null]
+$ns attach-agent $n1 $null
+$ns connect $udp1 $null
+$udp1 set fid_ 2
+
+# Setup a CBR over UDP connection
+set cbr1 [new Application/Traffic/CBR]
+$cbr1 attach-agent $udp1
+$cbr1 set type_ CBR
+$cbr1 set packet_size_ 1000
+$cbr1 set random_ false
+
+set counter 0
+foreach cRate $crossTrafficPatternUplink {
+		$ns at $counter "$cbr1 set rate_ ${cRate}kbps"
+		incr counter
+	}
+
+# Cbr start stop
+$ns at 0.0 "$cbr1 start"
+$ns at 30.0 "$cbr1 stop"
 
 # Detach tcp and sink agents
 $ns at 35.0 "$ns detach-agent $n0 $tcp1 ; $ns detach-agent $n1 $sink1"
