@@ -34,7 +34,16 @@ The JSON files corresponding to each **iBoxNet** network profile mainly contain 
 2. The network parameters corresponding to the Pantheon traces are learned only for one direction (as indicated by the **`link_type`** for which the data is collected) while the reverse direction's parameters (for example, the parameters of the downlink in this [network profile](https://github.com/microsoft/internet-in-a-box/blob/main/network-profiles/colombia/cellular/network-profile-1.json)) are populated using default values (not learned from data). 
 
 ## Quick Start
-Todo: add details regarding sample scripts
+To get started on running ns-2 simulations using the profiles, some sample ns-2 scripts have been provided in the src/sample-code directory. 
+
+Please install ns-2, tcl, and tcllib and run the following command
+
+```bash
+ns src/sample-code/single-link-with-cross-traffic.tcl arg1 arg2
+```
+where `arg1` is the path to the **iBoxNet** network profile and `arg2` is the directory you want to save your experiment trace file in.
+
+The sample script sets up the network topology corresponding to the **iBoxNet** network profile in addition to configuring the cross traffic sender to send traffic into the network appropriately. Further, the script runs a TCP Cubic file transfer for 30s on this network and saves the trace file corresponding to this simulation.
 
 ## Questions?
 If you have any questions, please feel free to [open an issue](https://github.com/microsoft/internet-in-a-box/issues/new) and describe your query.
