@@ -1,0 +1,24 @@
+{
+    "measurement_node": "india",
+    "peer_cloud_server": "aws india",
+    "data_flow_direction": "upload",
+    "link_type": "cellular",
+    "data_source_url": "https://pantheon.stanford.edu/result/3218/",
+    "config": {
+        "uplink": {
+            "bottleneck_bandwidth": 1608,
+            "buffer_size_bytes": 54674,
+            "buffer_size_packets": 36,
+            "propagation_delay": 71,
+            "cross_traffic_pattern": [1500, 1841, 1296, 604, 680, 860, 894, 551, 447, 435, 320, 313, 238, 437, 381, 349, 303, 372, 333, 459, 1030, 873, 455, 169, 320, 353, 234, 65, 19, 43]
+        },
+        "downlink": {
+            "bottleneck_bandwidth": 100000,
+            "buffer_size_bytes": 15000000,
+            "buffer_size_packets": 10000,
+            "propagation_delay": 0,
+            "cross_traffic_pattern": []
+        },
+        "__comment": "bottleneck_bandwidth is in kbps, buffer_size_packets is in number of MTU sized packets, propagation_delay is in ms, and the cross_traffic_pattern is a 30s long timeseries with each entry in kbps"
+    }
+}
