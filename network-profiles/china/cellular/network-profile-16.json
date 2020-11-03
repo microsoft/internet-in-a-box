@@ -1,0 +1,24 @@
+{
+    "measurement_node": "china",
+    "peer_cloud_server": "aws korea",
+    "data_flow_direction": "upload",
+    "link_type": "cellular",
+    "data_source_url": "https://pantheon.stanford.edu/result/461/",
+    "config": {
+        "uplink": {
+            "bottleneck_bandwidth": 2316,
+            "buffer_size_bytes": 76502,
+            "buffer_size_packets": 51,
+            "propagation_delay": 100,
+            "cross_traffic_pattern": [0, 0, 41, 133, 210, 261, 300, 328, 350, 366, 377, 383, 383, 384, 386, 384, 385, 386, 386, 388, 390, 390, 391, 394, 394, 393, 392, 393, 393, 392]
+        },
+        "downlink": {
+            "bottleneck_bandwidth": 10000,
+            "buffer_size_bytes": 15000000,
+            "buffer_size_packets": 10000,
+            "propagation_delay": 0,
+            "cross_traffic_pattern": []
+        },
+        "__comment": "bottleneck_bandwidth is in kbps, buffer_size_packets is in number of MTU sized packets, propagation_delay is in ms, and the cross_traffic_pattern is a 30s long timeseries with each entry in kbps"
+    }
+}
