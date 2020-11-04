@@ -54,5 +54,5 @@ If you'd like to cite our paper, please use this doi: [10.1145/3422604.3425935](
 
 
 ## References
-<a id="1">[1]</a> S. Ashok, S. S. Duvvuri, N. Natarajan, V. Padmanabhan, S. Sellamanickam, and J. Gehrke. iBox: Internet in a Box. In ACM HotNets, November 2020  
-<a id="2">[2]</a> F. Y. Yan, J. Ma, G. D. Hill, D. Raghavan, R. S. Wahby, P. Levis,and K. Winstein.   Pantheon: the training ground for internet congestion-control research. In 2018 USENIX Annual Technical Conference (USENIX ATC 18), pages 731–743, 2018
+<a id="1">[1]</a> S. Ashok, S. S. Duvvuri, N. Natarajan, V. N. Padmanabhan, S. Sellamanickam, and J. Gehrke. "iBox: Internet in a Box". In Proceedings of the 19th ACM Workshop on Hot Topics in Networks, HotNets ’20, page 23–29, New York, NY, USA, 2020. Association for Computing Machinery.  
+<a id="2">[2]</a> F. Y. Yan, J. Ma, G. D. Hill, D. Raghavan, R. S. Wahby, P. Levis, and K. Winstein.   Pantheon: the training ground for internet congestion-control research. In 2018 USENIX Annual Technical Conference (USENIX ATC 18), pages 731–743, 2018

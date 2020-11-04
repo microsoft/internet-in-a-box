@@ -1,4 +1,4 @@
-# package require json
+package require json
 
 # Create a simulator object
 set ns [new Simulator]
@@ -23,12 +23,12 @@ close $loadedFile
 set params [dict get $profile config]
 
 set uplinkParams [dict get $params uplink]
-set bottleneckBandwidthUplink [dict get $uplinkParams bottleneck_bandwidth]kb
+set bottleneckBandwidthUplink [dict get $uplinkParams bottleneck_bandwidth]kbps
 set bufferSizeInPacketsUplink [dict get $uplinkParams buffer_size_packets]
 set propagationDelayUplink [dict get $uplinkParams propagation_delay]ms
 
 set downlinkParams [dict get $params downlink]
-set bottleneckBandwidthDownlink [dict get $downlinkParams bottleneck_bandwidth]kb
+set bottleneckBandwidthDownlink [dict get $downlinkParams bottleneck_bandwidth]kbps
 set bufferSizeInPacketsDownlink [dict get $downlinkParams buffer_size_packets]
 set propagationDelayDownlink [dict get $downlinkParams propagation_delay]ms
 
@@ -45,9 +45,10 @@ $ns trace-all $tf
 $ns simplex-link $n0 $n1 $bottleneckBandwidthUplink $propagationDelayUplink DropTail
 $ns simplex-link $n1 $n0 $bottleneckBandwidthDownlink $propagationDelayDownlink DropTail
 
-puts "Uplink bottleneck bandwidth set to $bottleneckBandwidthUplink kbps"
-puts "Uplink buffer size set to $bufferSizeInPacketsUplink packets"
-puts "Uplink propagation delay set to $propagationDelayUplink ms"
+puts "Uplink: Bottleneck bandwidth set to $bottleneckBandwidthUplink"
+puts "Uplink: Buffer size set to $bufferSizeInPacketsUplink packets"
+puts "Uplink: Propagation delay set to $propagationDelayUplink"
+puts "Uplink: TCP Cubic sender set up to send flow traffic from s (sender) to r (receiver)"
 
 # Set queue sizes
 $ns queue-limit $n0 $n1 $bufferSizeInPacketsUplink
