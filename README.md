@@ -36,7 +36,7 @@ The JSON files corresponding to each **iBoxNet** network profile mainly contain 
 ## Quick Start
 To get started on running ns-2 simulations using the profiles, some sample ns-2 scripts have been provided in the src/sample-code directory. 
 
-Please install ns-2, tcl, and tcllib and run the following command
+Please install ns-2, tcl, and tcllib and run the following command:
 
 ```bash
 ns src/sample-code/single-link-with-cross-traffic.tcl arg1 arg2
